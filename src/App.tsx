@@ -23,6 +23,7 @@ const App = () => (
           <Route path="/era/:era" element={<EraPage />} />
           <Route path="/philosopher/:id" element={<PhilosopherDetail />} />
           <Route path="/thoughts" element={<ThoughtsPage />} />
+          <Route path="/conclusion" element={<ConclusionPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

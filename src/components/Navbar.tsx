@@ -9,7 +9,7 @@ const navItems = [
   { label: "Triết học cận đại", href: "/era/modern" },
   { label: "Triết học hiện đại", href: "/era/contemporary" },
   { label: "Tư tưởng triết học", href: "/thoughts" },
-  { label: "Kết luận", href: "/#conclusion" },
+  { label: "Kết luận", href: "/conclusion" },
 ];
 
 const Navbar = () => {

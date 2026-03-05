@@ -3,8 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import TimelineSection from "@/components/TimelineSection";
 import PhilosophersSection from "@/components/PhilosophersSection";
 
-import CTASection from "@/components/CTASection";
-
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -12,8 +10,6 @@ const Index = () => {
       <HeroSection />
       <TimelineSection />
       <PhilosophersSection />
-      
-      <CTASection />
     </div>
   );
 };
