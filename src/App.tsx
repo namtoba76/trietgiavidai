@@ -8,6 +8,7 @@ import EraPage from "./pages/EraPage";
 import PhilosopherDetail from "./pages/PhilosopherDetail";
 import ThoughtsPage from "./pages/ThoughtsPage";
 import ConclusionPage from "./pages/ConclusionPage";
+import ArticleDetail from "./pages/ArticleDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();

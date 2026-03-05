@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TimelineSection from "@/components/TimelineSection";
 import PhilosophersSection from "@/components/PhilosophersSection";
+import LatestInsightsSection from "@/components/LatestInsightsSection";
 
 const Index = () => {
   return (
@@ -10,6 +11,7 @@ const Index = () => {
       <HeroSection />
       <TimelineSection />
       <PhilosophersSection />
+      <LatestInsightsSection />
     </div>
   );
 };
