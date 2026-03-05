@@ -12,7 +12,7 @@ const Index = () => {
       <HeroSection />
       <TimelineSection />
       <PhilosophersSection />
-      <QuotesSection />
+      
       <CTASection />
     </div>
   );

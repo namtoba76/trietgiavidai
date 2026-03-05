@@ -8,7 +8,7 @@ const navItems = [
   { label: "Triết học cổ đại", href: "/era/ancient" },
   { label: "Triết học cận đại", href: "/era/modern" },
   { label: "Triết học hiện đại", href: "/era/contemporary" },
-  { label: "Tư tưởng triết học", href: "/#thoughts" },
+  { label: "Tư tưởng triết học", href: "/thoughts" },
   { label: "Kết luận", href: "/#conclusion" },
 ];
 
