@@ -1,47 +1,72 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Landmark, Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: "Trang chủ", href: "#hero" },
-  { label: "Triết học cổ đại", href: "#ancient" },
-  { label: "Triết học cận đại", href: "#modern" },
-  { label: "Triết học hiện đại", href: "#contemporary" },
-  { label: "Tư tưởng triết học", href: "#thoughts" },
-  { label: "Kết luận", href: "#conclusion" },
+  { label: "Trang chủ", href: "/" },
+  { label: "Triết học cổ đại", href: "/era/ancient" },
+  { label: "Triết học cận đại", href: "/era/modern" },
+  { label: "Triết học hiện đại", href: "/era/contemporary" },
+  { label: "Tư tưởng triết học", href: "/#thoughts" },
+  { label: "Kết luận", href: "/#conclusion" },
 ];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
-  const scrollTo = (href: string) => {
+  const isActive = (href: string) => {
+    if (href.startsWith("/#")) return location.pathname === "/";
+    return location.pathname === href;
+  };
+
+  const handleClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("/#")) {
+      const hash = href.replace("/", "");
+      if (location.pathname === "/") {
+        const el = document.querySelector(hash);
+        el?.scrollIntoView({ behavior: "smooth" });
+      }
+    }
   };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <button onClick={() => scrollTo("#hero")} className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <Landmark className="w-6 h-6 text-primary" />
           <span className="font-display text-lg font-bold text-foreground">Triết Gia Vĩ Đại</span>
-        </button>
+        </Link>
 
-        {/* Desktop */}
         <div className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => (
-            <button
-              key={item.href}
-              onClick={() => scrollTo(item.href)}
-              className="text-sm font-body text-muted-foreground hover:text-primary transition-colors"
-            >
-              {item.label}
-            </button>
-          ))}
+          {navItems.map((item) =>
+            item.href.startsWith("/#") ? (
+              <Link
+                key={item.href}
+                to={item.href}
+                onClick={() => handleClick(item.href)}
+                className={`text-sm font-body transition-colors ${
+                  isActive(item.href) ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <Link
+                key={item.href}
+                to={item.href}
+                className={`text-sm font-body transition-colors ${
+                  isActive(item.href) ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </div>
 
-        {/* Mobile toggle */}
         <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -57,13 +82,16 @@ const Navbar = () => {
           >
             <div className="px-4 py-4 flex flex-col gap-3">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.href}
-                  onClick={() => scrollTo(item.href)}
-                  className="text-sm font-body text-muted-foreground hover:text-primary transition-colors text-left"
+                  to={item.href}
+                  onClick={() => handleClick(item.href)}
+                  className={`text-sm font-body transition-colors text-left ${
+                    isActive(item.href) ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary"
+                  }`}
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
             </div>
           </motion.div>
