@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TimelineSection from "@/components/TimelineSection";
 import PhilosophersSection from "@/components/PhilosophersSection";
-import QuotesSection from "@/components/QuotesSection";
+
 import CTASection from "@/components/CTASection";
 
 const Index = () => {
