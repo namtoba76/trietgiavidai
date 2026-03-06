@@ -13,34 +13,34 @@ interface EraConfig {
 }
 
 const eras: EraConfig[] = [
-  {
-    id: "ancient",
-    title: "Triết Học Cổ Đại",
-    subtitle: "Thế kỷ 6 TCN – Thế kỷ 4 TCN",
-    era: "ancient",
-    accentClass: "from-amber-500/20 to-yellow-600/20",
-  },
-  {
-    id: "modern",
-    title: "Triết Học Cận Đại",
-    subtitle: "Thế kỷ 17 – Thế kỷ 19",
-    era: "modern",
-    accentClass: "from-blue-500/20 to-indigo-600/20",
-  },
-  {
-    id: "contemporary",
-    title: "Triết Học Hiện Đại",
-    subtitle: "Thế kỷ 19 – Nay",
-    era: "contemporary",
-    accentClass: "from-rose-500/20 to-purple-600/20",
-  },
-];
+{
+  id: "ancient",
+  title: "Triết Học Cổ Đại",
+  subtitle: "Thế kỷ 6 TCN – Thế kỷ 4 TCN",
+  era: "ancient",
+  accentClass: "from-amber-500/20 to-yellow-600/20"
+},
+{
+  id: "modern",
+  title: "Triết Học Cận Đại",
+  subtitle: "Thế kỷ 17 – Thế kỷ 19",
+  era: "modern",
+  accentClass: "from-blue-500/20 to-indigo-600/20"
+},
+{
+  id: "contemporary",
+  title: "Triết Học Hiện Đại",
+  subtitle: "Thế kỷ 19 – Nay",
+  era: "contemporary",
+  accentClass: "from-rose-500/20 to-purple-600/20"
+}];
 
-const PhilosopherCard = ({ p }: { p: Philosopher }) => (
-  <Link
-    to={`/philosopher/${p.id}`}
-    className="flex-shrink-0 w-[280px] sm:w-[320px] bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group border border-border hover:border-primary/40 cursor-pointer"
-  >
+
+const PhilosopherCard = ({ p }: {p: Philosopher;}) =>
+<Link
+  to={`/philosopher/${p.id}`}
+  className="flex-shrink-0 w-[280px] sm:w-[320px] bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group border border-border hover:border-primary/40 cursor-pointer">
+  
     {/* Image area */}
     <div className="h-52 overflow-hidden bg-secondary flex items-center justify-center relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
@@ -76,10 +76,10 @@ const PhilosopherCard = ({ p }: { p: Philosopher }) => (
         <ArrowRight className="w-4 h-4" />
       </div>
     </div>
-  </Link>
-);
+  </Link>;
 
-const EraSection = ({ era }: { era: EraConfig }) => {
+
+const EraSection = ({ era }: {era: EraConfig;}) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const eraPhilosophers = philosophers.filter((p) => p.era === era.era);
   const info = eraInfo[era.era];
@@ -89,7 +89,7 @@ const EraSection = ({ era }: { era: EraConfig }) => {
     const amount = 340;
     scrollRef.current.scrollBy({
       left: direction === "left" ? -amount : amount,
-      behavior: "smooth",
+      behavior: "smooth"
     });
   };
 
@@ -100,8 +100,8 @@ const EraSection = ({ era }: { era: EraConfig }) => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4"
-      >
+        className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        
         <div>
           <span className="text-xs uppercase tracking-[0.2em] text-primary font-body font-semibold">
             Giai đoạn
@@ -119,21 +119,21 @@ const EraSection = ({ era }: { era: EraConfig }) => {
           <button
             onClick={() => scroll("left")}
             className="w-10 h-10 rounded-full border border-border bg-card hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center shadow-sm"
-            aria-label="Kéo sang trái"
-          >
+            aria-label="Kéo sang trái">
+            
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => scroll("right")}
             className="w-10 h-10 rounded-full border border-border bg-card hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center shadow-sm"
-            aria-label="Kéo sang phải"
-          >
+            aria-label="Kéo sang phải">
+            
             <ChevronRight className="w-5 h-5" />
           </button>
           <Link
             to={`/era/${era.id}`}
-            className="ml-2 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-body font-semibold hover:bg-primary hover:text-primary-foreground transition-all"
-          >
+            className="ml-2 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-body font-semibold hover:bg-primary hover:text-primary-foreground transition-all">
+            
             Xem tất cả
             <ArrowRight className="w-4 h-4" />
           </Link>
@@ -148,19 +148,19 @@ const EraSection = ({ era }: { era: EraConfig }) => {
 
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 px-2 scroll-smooth"
-        >
-          {eraPhilosophers.map((p, i) => (
-            <motion.div
-              key={p.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-            >
+          className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 px-2 scroll-smooth">
+          
+          {eraPhilosophers.map((p, i) =>
+          <motion.div
+            key={p.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}>
+            
               <PhilosopherCard p={p} />
             </motion.div>
-          ))}
+          )}
         </div>
       </div>
 
@@ -168,10 +168,10 @@ const EraSection = ({ era }: { era: EraConfig }) => {
       <div className="mt-6 flex items-center gap-6 text-sm text-muted-foreground font-body">
         <span>{eraPhilosophers.length} triết gia</span>
         <span className="w-1 h-1 rounded-full bg-muted-foreground" />
-        <span>Kéo ngang để khám phá thêm</span>
+        <span>
+</span>
       </div>
-    </div>
-  );
+    </div>);
 };
 
 const PhilosophersSection = () => {
@@ -182,8 +182,8 @@ const PhilosophersSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+          className="text-center mb-16">
+          
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Các Triết Gia Vĩ Đại Qua Các Thời Kỳ
           </h2>
@@ -192,12 +192,12 @@ const PhilosophersSection = () => {
           </p>
         </motion.div>
 
-        {eras.map((era) => (
-          <EraSection key={era.id} era={era} />
-        ))}
+        {eras.map((era) =>
+        <EraSection key={era.id} era={era} />
+        )}
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default PhilosophersSection;
