@@ -164,13 +164,7 @@ const EraSection = ({ era }: {era: EraConfig;}) => {
         </div>
       </div>
 
-      {/* Era stats */}
-      <div className="mt-6 flex items-center gap-6 text-sm text-muted-foreground font-body">
-        <span>{eraPhilosophers.length} triết gia</span>
-        <span className="w-1 h-1 rounded-full bg-muted-foreground" />
-        <span>
-</span>
-      </div>
+    
     </div>);
 };
 
