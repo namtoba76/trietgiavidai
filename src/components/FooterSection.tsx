@@ -42,7 +42,7 @@ const FooterSection = () => {
       <div className="border-t border-warm-gold/10 py-6">
         <div className="max-w-7xl mx-auto px-4 text-center space-y-1">
           <p className="text-dark-text/30 text-xs font-body">© 2025 Philosophy Project</p>
-          <p className="text-dark-text/30 text-xs font-body">MLN122 - MC1814</p>
+          <p className="text-dark-text/30 text-xs font-body">MLN122 - MC1814 &nbsp;·&nbsp; Tô Bá Khánh Nam &nbsp;·&nbsp; Lương Quốc Thuận &nbsp;·&nbsp; Vũ Quốc Quân &nbsp;·&nbsp; Nguyễn Tiến Hoàng</p>
         </div>
       </div>
     </footer>
